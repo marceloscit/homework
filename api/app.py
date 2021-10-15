@@ -9,9 +9,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 #create flask object and set configuration
 app = flask.Flask(__name__)
+
 csrf = CSRFProtect()
-csrf.init_app(app) # Compliant
-app.config["DEBUG"] = True
+#csrf.init_app(app) # Compliant
+
 app.config["DATE_FORMAT"] = "%Y-%m-%d"
 if os.environ.get('SQLALCHEMY_DATABASE_URI'):
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')

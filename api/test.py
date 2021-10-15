@@ -10,6 +10,7 @@ class MyTestCase(unittest.TestCase):
 
     def setUp(self):
         app.testing = True
+        
         self.app = app.app.test_client()
         app.app.config["USER"]="unittest"
         self.api = "/hello/"
