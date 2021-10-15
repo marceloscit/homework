@@ -28,7 +28,10 @@ spec:
     spec:
       containers:
       - name: hello-python
-        image: scconsulting/hello-python:v1
+        image: scconsulting/hello-python:v3
+        env:
+        - name: SQLALCHEMY_DATABASE_URI
+          value: "mysql+pymysql://revolut:revolut@34.254.242.117/revolut?charset=utf8mb4"
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
