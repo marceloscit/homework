@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<testsuite name="MyTestCase-20211015084018" tests="4" time="0.001" failures="0" errors="4">
+	<testcase classname="MyTestCase" name="test_1_put" time="0.001">
+		<error type="NameError" message="name 'api' is not defined"><![CDATA[Traceback (most recent call last):
+  File "/home/marcelo/homework/api/test.py", line 12, in setUp
+    api.app.testing = True
+NameError: name 'api' is not defined
+]]></error>
+	</testcase>
+	<testcase classname="MyTestCase" name="test_2_get" time="0.000">
+		<error type="NameError" message="name 'api' is not defined"><![CDATA[Traceback (most recent call last):
+  File "/home/marcelo/homework/api/test.py", line 12, in setUp
+    api.app.testing = True
+NameError: name 'api' is not defined
+]]></error>
+	</testcase>
+	<testcase classname="MyTestCase" name="test_3_put" time="0.000">
+		<error type="NameError" message="name 'api' is not defined"><![CDATA[Traceback (most recent call last):
+  File "/home/marcelo/homework/api/test.py", line 12, in setUp
+    api.app.testing = True
+NameError: name 'api' is not defined
+]]></error>
+	</testcase>
+	<testcase classname="MyTestCase" name="test_4_get" time="0.000">
+		<error type="NameError" message="name 'api' is not defined"><![CDATA[Traceback (most recent call last):
+  File "/home/marcelo/homework/api/test.py", line 12, in setUp
+    api.app.testing = True
+NameError: name 'api' is not defined
+]]></error>
+	</testcase>
+	<system-out><![CDATA[]]></system-out>
+	<system-err><![CDATA[]]></system-err>
+</testsuite>
