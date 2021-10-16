@@ -1,7 +1,6 @@
 import flask
 from flask import request, jsonify
 from datetime import datetime
-from flask_wtf.csrf import CSRFProtect
 
 import os
 
@@ -9,9 +8,6 @@ from flask_sqlalchemy import SQLAlchemy
 
 # create flask object and set configuration
 app = flask.Flask(__name__)
-
-csrf = CSRFProtect()
-csrf.init_app(app)  # Compliant
 
 app.config["DATE_FORMAT"] = "%Y-%m-%d"
 if os.environ.get('SQLALCHEMY_DATABASE_URI'):
