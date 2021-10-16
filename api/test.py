@@ -1,7 +1,6 @@
 import app
 import unittest
 
-
 import json
 from datetime import datetime
 import xmlrunner
