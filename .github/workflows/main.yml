@@ -11,7 +11,7 @@ jobs:
       matrix:
         python-version: [3.8]
     steps:
-      - name: Send Code to Sonarqube
+      - name: Send Code to Sonarqube 
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
