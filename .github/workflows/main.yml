@@ -45,5 +45,5 @@ jobs:
       - name: Test with unittest
         run: |
           export SQLALCHEMY_DATABASE_URI="mysql+pymysql://revolut:revolut@34.254.242.117/revolut?charset=utf8mb4"
-          python3 test.py
+          python3 ./api/test.py
           
