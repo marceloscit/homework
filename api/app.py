@@ -16,7 +16,7 @@ if os.environ.get('SQLALCHEMY_DATABASE_URI'):
     # create SQLAlchemy object
     db = SQLAlchemy(app)
 else:
-    raise Exception('Please provide SQLALCHEMY_DATABASE_URI environment value')
+    raise OSError('Please provide SQLALCHEMY_DATABASE_URI environment value')
 
 # db.model class definition for SQLAlchemy - it will create table when called
 class Users(db.Model):
