@@ -48,12 +48,10 @@ jobs:
           python3 ./api/test.py
       - name: Build Docker image
         run: |
-          ls -ls
-          docker build . -t scconsulting/hello-python:latest
+          docker build ./api -t scconsulting/hello-python:latest
       - name: Push image
         run: |
           docker push scconsulting/hello-python:latest
-          ls -ls
 
           
           
