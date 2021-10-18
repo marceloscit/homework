@@ -68,45 +68,46 @@ def get_hello(username):
 @app.route('/hello/<username>', methods=['PUT'])
 def put_hello(username):
     # check if all symbols are letters, else return error
-    if username.isalpha():
-        # check if Content-type is application/json
-        if request.headers.get('Content-Type') == 'application/json':
-            # check if request body is json
-            if request.is_json:
-                try:
-                    # get dateOfBirth from request body
-                    dateOfBirth=datetime.strptime(request.get_json()['dateOfBirth'], app.config["DATE_FORMAT"])
-                    # check if dateOfBirth doesn't exceed today
-                    if dateOfBirth < datetime.now():
-                        # query table by username
-                        user = Users.query.filter_by(username=username).first()
-                        # if user is not None, update birthdate and commit
-                        if user:
-                            user.birthdate = dateOfBirth
-                            db.session.commit()
-                            return ('', 204)
-                        # if user is None, it means that we need to create user
-                        else:
-                            user = Users(username=username, birthdate=dateOfBirth)
-                            db.session.add(user)
-                            db.session.commit()
-                            return ('', 204)
-                    # return that date must not exceed today with http code 400
-                    else:
-                        return ({"error": "date must not exceed today"}, 400)
-                # if there is an exception return error with http code 400
-                except (Exception) as parseError:
-                    print(parseError)
-                    return ({"error": "parsing error: {}".format(parseError)}, 400)
-            # if request body is not json formatted return error with http code 400
-            else:
-                return ({"error": "body of PUT request should be json-formatted"}, 400)             
-        # if Content-type header is not application/json return error with http code 400
-        else:
-            return ({"error": "header 'Content-Type' should be application/json"}, 400)
-    #if username contains something except letters and return error with http code = 400 Bad request
-    else:
+    if not username.isalpha():
+        # if username contains something except letters and return error with http code = 400 Bad request
         return ({"error": "username must contain only letters"}, 400)
+
+    # check if Content-type is application/json
+    if not request.headers.get('Content-Type') == 'application/json':
+        # check if request body is json
+        return ({"error": "header 'Content-Type' should be application/json"}, 400)
+    
+    if request.is_json:
+        try:
+            # get dateOfBirth from request body
+            dateOfBirth=datetime.strptime(request.get_json()['dateOfBirth'], app.config["DATE_FORMAT"])
+            # check if dateOfBirth doesn't exceed today
+            if dateOfBirth > datetime.now():
+                # return that date must not exceed today with http code 400
+                return ({"error": "date must not exceed today"}, 400)
+            
+            # query table by username
+            user = Users.query.filter_by(username=username).first()
+            # if user is not None, update birthdate and commit
+            if user:
+                user.birthdate = dateOfBirth
+                db.session.commit()
+                return ('', 204)
+            # if user is None, it means that we need to create user
+            else:
+                user = Users(username=username, birthdate=dateOfBirth)
+                db.session.add(user)
+                db.session.commit()
+                return ('', 204)
+            
+        # if there is an exception return error with http code 400
+        except (Exception) as parseError:
+            print(parseError)
+            return ({"error": "parsing error: {}".format(parseError)}, 400)
+    # if request body is not json formatted return error with http code 400
+    else:
+        return ({"error": "body of PUT request should be json-formatted"}, 400)             
+    # if Content-type header is not application/json return error with http code 400
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
