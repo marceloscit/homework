@@ -11,7 +11,7 @@ class MyTestCase(unittest.TestCase):
         app.testing = True
         
         self.app = app.app.test_client()
-        app.app.config["USER"]="unittest"
+        app.app.config["USER"]="NOVO"
         self.api = "/hello/"
         now = datetime.now()
         app.app.config["DATE"]="{}-12-31".format(now.year-1)
