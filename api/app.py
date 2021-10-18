@@ -75,6 +75,7 @@ def put_hello(username):
     # check if Content-type is application/json
     if not request.headers.get('Content-Type') == 'application/json':
         # check if request body is json
+        # if request body is not json formatted return error with http code 400
         return ({"error": "header 'Content-Type' should be application/json"}, 400)
     
     if request.is_json:
@@ -104,7 +105,7 @@ def put_hello(username):
         except (Exception) as parseError:
             print(parseError)
             return ({"error": "parsing error: {}".format(parseError)}, 400)
-    # if request body is not json formatted return error with http code 400
+
     else:
         return ({"error": "body of PUT request should be json-formatted"}, 400)             
     # if Content-type header is not application/json return error with http code 400
