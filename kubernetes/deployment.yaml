@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: hello-python
-        image: scconsulting/hello-python:v3
+        image: scconsulting/hello-python:latest
         env:
         - name: SQLALCHEMY_DATABASE_URI
           value: "mysql+pymysql://revolut:revolut@34.254.242.117/revolut?charset=utf8mb4"
