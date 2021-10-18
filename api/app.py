@@ -3,7 +3,6 @@ from flask import request, jsonify
 from datetime import datetime
 
 import os
-
 from flask_sqlalchemy import SQLAlchemy
 
 # create flask object and set configuration
