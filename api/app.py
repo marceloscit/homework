@@ -80,9 +80,9 @@ def put_hello(username):
     if request.is_json:
         try:
             # get dateOfBirth from request body
-            dateOfBirth=datetime.strptime(request.get_json()['dateOfBirth'], app.config["DATE_FORMAT"])
+            dateofbirth=datetime.strptime(request.get_json()['dateOfBirth'], app.config["DATE_FORMAT"])
             # check if dateOfBirth doesn't exceed today
-            if dateOfBirth > datetime.now():
+            if dateofbirth > datetime.now():
                 # return that date must not exceed today with http code 400
                 return ({"error": "date must not exceed today"}, 400)
             
@@ -90,12 +90,12 @@ def put_hello(username):
             user = Users.query.filter_by(username=username).first()
             # if user is not None, update birthdate and commit
             if user:
-                user.birthdate = dateOfBirth
+                user.birthdate = dateofbirth
                 db.session.commit()
                 return ('', 204)
             # if user is None, it means that we need to create user
             else:
-                user = Users(username=username, birthdate=dateOfBirth)
+                user = Users(username=username, birthdate=dateofbirth)
                 db.session.add(user)
                 db.session.commit()
                 return ('', 204)
