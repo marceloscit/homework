@@ -73,6 +73,7 @@ jobs:
       # Build the Docker image
       - name: Build
         run: |-
+          ls -ls
           docker build \
             --tag "$IMAGE:$GITHUB_SHA" \
             --build-arg GITHUB_SHA="$GITHUB_SHA" \
