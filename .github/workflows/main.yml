@@ -89,7 +89,6 @@ jobs:
       - name: Publish
         run: |-
           docker push "$IMAGE:$GITHUB_SHA"
-
       # Deploy the Docker image to the GKE cluster
       - name: Deploy
         run: |-
