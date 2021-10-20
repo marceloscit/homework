@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<testsuite name="MyTestCase-20211018222747" tests="4" time="1.515" failures="0" errors="1">
+	<testcase classname="MyTestCase" name="test_1_put" time="0.974"/>
+	<testcase classname="MyTestCase" name="test_3_put" time="0.216"/>
+	<testcase classname="MyTestCase" name="test_4_get" time="0.160"/>
+	<testcase classname="MyTestCase" name="test_2_get" time="0.164">
+		<error type="AssertionError" message="{'message': 'Hello, NOVO! Your  birthday is in 74 day(s)'} != {'message': 'Hello, NOVO! Your birthday is in 74 day(s)'}
+- {'message': 'Hello, NOVO! Your  birthday is in 74 day(s)'}
+?                               -
+
++ {'message': 'Hello, NOVO! Your birthday is in 74 day(s)'}"><![CDATA[Traceback (most recent call last):
+  File "test.py", line 40, in test_2_get
+    self.assertEqual(response_message,json.loads(response.get_data()))
+AssertionError: {'message': 'Hello, NOVO! Your  birthday is in 74 day(s)'} != {'message': 'Hello, NOVO! Your birthday is in 74 day(s)'}
+- {'message': 'Hello, NOVO! Your  birthday is in 74 day(s)'}
+?                               -
+
++ {'message': 'Hello, NOVO! Your birthday is in 74 day(s)'}
+]]></error>
+	</testcase>
+	<system-out><![CDATA[Check adding entry - status code is equal 204
+Check get entry - status code is equal 200 and check response message
+Check updating entry with birthdate today- status code is equal 204
+Check get entry - status code is equal 200 and check response message
+]]></system-out>
+	<system-err><![CDATA[]]></system-err>
+</testsuite>

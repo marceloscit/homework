@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<testsuite name="MyTestCase-20211020134539" tests="4" time="40.111" failures="0" errors="4">
+	<testcase classname="MyTestCase" name="test_1_put" time="10.061">
+		<error type="AssertionError" message="204 != 400"><![CDATA[Traceback (most recent call last):
+  File "test.py", line 26, in test_1_put
+    self.assertEqual(204,response.status_code)
+AssertionError: 204 != 400
+]]></error>
+	</testcase>
+	<testcase classname="MyTestCase" name="test_2_get" time="10.016">
+		<error type="AssertionError" message="200 != 400"><![CDATA[Traceback (most recent call last):
+  File "test.py", line 39, in test_2_get
+    self.assertEqual(200,response.status_code)
+AssertionError: 200 != 400
+]]></error>
+	</testcase>
+	<testcase classname="MyTestCase" name="test_3_put" time="10.019">
+		<error type="AssertionError" message="204 != 400"><![CDATA[Traceback (most recent call last):
+  File "test.py", line 51, in test_3_put
+    self.assertEqual(204,response.status_code)
+AssertionError: 204 != 400
+]]></error>
+	</testcase>
+	<testcase classname="MyTestCase" name="test_4_get" time="10.016">
+		<error type="AssertionError" message="200 != 400"><![CDATA[Traceback (most recent call last):
+  File "test.py", line 57, in test_4_get
+    self.assertEqual(200,response.status_code)
+AssertionError: 200 != 400
+]]></error>
+	</testcase>
+	<system-out><![CDATA[(pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '34.254.242.117' (timed out)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Check adding entry - status code is equal 204
+(pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '34.254.242.117' (timed out)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Check get entry - status code is equal 200 and check response message
+(pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '34.254.242.117' (timed out)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Check updating entry with birthdate today- status code is equal 204
+(pymysql.err.OperationalError) (2003, "Can't connect to MySQL server on '34.254.242.117' (timed out)")
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Check get entry - status code is equal 200 and check response message
+]]></system-out>
+	<system-err><![CDATA[]]></system-err>
+</testsuite>

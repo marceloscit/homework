@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<testsuite name="MyTestCase-20211020141113" tests="4" time="1.359" failures="0" errors="0">
+	<testcase classname="MyTestCase" name="test_1_put" time="0.826"/>
+	<testcase classname="MyTestCase" name="test_2_get" time="0.162"/>
+	<testcase classname="MyTestCase" name="test_3_put" time="0.212"/>
+	<testcase classname="MyTestCase" name="test_4_get" time="0.159"/>
+	<system-out><![CDATA[Check adding entry - status code is equal 204
+Check get entry - status code is equal 200 and check response message
+Check updating entry with birthdate today- status code is equal 204
+Check get entry - status code is equal 200 and check response message
+]]></system-out>
+	<system-err><![CDATA[]]></system-err>
+</testsuite>

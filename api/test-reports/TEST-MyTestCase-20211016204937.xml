@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<testsuite name="MyTestCase-20211016204937" tests="4" time="1.018" failures="0" errors="4">
+	<testcase classname="MyTestCase" name="test_1_put" time="0.031">
+		<error type="AssertionError" message="204 != 500"><![CDATA[Traceback (most recent call last):
+  File "test.py", line 27, in test_1_put
+    self.assertEqual(204,response.status_code)
+AssertionError: 204 != 500
+]]></error>
+	</testcase>
+	<testcase classname="MyTestCase" name="test_2_get" time="0.826">
+		<error type="AssertionError" message="{'message': 'Hello, unittest! Your birthday is in 76 day(s)'} != {'message': 'Hello, unittest! Your birthday has already passed'}
+- {'message': 'Hello, unittest! Your birthday is in 76 day(s)'}
+?                                             ^  ^^^^^^  -- ^
+
++ {'message': 'Hello, unittest! Your birthday has already passed'}
+?                                             ^^  ^^^^^ +++  ^^^
+"><![CDATA[Traceback (most recent call last):
+  File "test.py", line 41, in test_2_get
+    self.assertEqual(response_message,json.loads(response.get_data()))
+AssertionError: {'message': 'Hello, unittest! Your birthday is in 76 day(s)'} != {'message': 'Hello, unittest! Your birthday has already passed'}
+- {'message': 'Hello, unittest! Your birthday is in 76 day(s)'}
+?                                             ^  ^^^^^^  -- ^
+
++ {'message': 'Hello, unittest! Your birthday has already passed'}
+?                                             ^^  ^^^^^ +++  ^^^
+
+]]></error>
+	</testcase>
+	<testcase classname="MyTestCase" name="test_3_put" time="0.006">
+		<error type="AssertionError" message="204 != 500"><![CDATA[Traceback (most recent call last):
+  File "test.py", line 52, in test_3_put
+    self.assertEqual(204,response.status_code)
+AssertionError: 204 != 500
+]]></error>
+	</testcase>
+	<testcase classname="MyTestCase" name="test_4_get" time="0.156">
+		<error type="AssertionError" message="{'message': 'Hello, unittest! Happy birthday!'} != {'message': 'Hello, unittest! Your birthday has already passed'}
+- {'message': 'Hello, unittest! Happy birthday!'}
++ {'message': 'Hello, unittest! Your birthday has already passed'}"><![CDATA[Traceback (most recent call last):
+  File "test.py", line 59, in test_4_get
+    self.assertEqual(response_message,json.loads(response.get_data()))
+AssertionError: {'message': 'Hello, unittest! Happy birthday!'} != {'message': 'Hello, unittest! Your birthday has already passed'}
+- {'message': 'Hello, unittest! Happy birthday!'}
++ {'message': 'Hello, unittest! Your birthday has already passed'}
+]]></error>
+	</testcase>
+	<system-out><![CDATA[Check adding entry - status code is equal 204
+Check get entry - status code is equal 200 and check response message
+Check updating entry with birthdate today- status code is equal 204
+Check get entry - status code is equal 200 and check response message
+]]></system-out>
+	<system-err><![CDATA[[2021-10-16 20:49:37,805] ERROR in app: Exception on /hello/unittest [PUT]
+Traceback (most recent call last):
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask/app.py", line 1514, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask/app.py", line 1857, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask_wtf/csrf.py", line 225, in csrf_protect
+    self.protect()
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask_wtf/csrf.py", line 257, in protect
+    validate_csrf(self._get_csrf_token())
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask_wtf/csrf.py", line 79, in validate_csrf
+    secret_key = _get_config(
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask_wtf/csrf.py", line 129, in _get_config
+    raise RuntimeError(message)
+RuntimeError: A secret key is required to use CSRF.
+[2021-10-16 20:49:38,648] ERROR in app: Exception on /hello/unittest [PUT]
+Traceback (most recent call last):
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask/app.py", line 1514, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask/app.py", line 1857, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask_wtf/csrf.py", line 225, in csrf_protect
+    self.protect()
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask_wtf/csrf.py", line 257, in protect
+    validate_csrf(self._get_csrf_token())
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask_wtf/csrf.py", line 79, in validate_csrf
+    secret_key = _get_config(
+  File "/home/marcelo/homework/homework/lib/python3.8/site-packages/flask_wtf/csrf.py", line 129, in _get_config
+    raise RuntimeError(message)
+RuntimeError: A secret key is required to use CSRF.
+]]></system-err>
+</testsuite>
