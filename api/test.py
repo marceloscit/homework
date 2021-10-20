@@ -28,11 +28,12 @@ class MyTestCase(unittest.TestCase):
     def test_2_get(self):
         now = datetime.now()
         birthdate = datetime.strptime(app.app.config["DATE"], self.format)
-        print(birthdate)
+
         formatted_birthday = datetime(now.year, birthdate.month, birthdate.day)
 
-        days_to_birthday=abs( ( now.today() - formatted_birthday).days )
+        days_to_birthday = abs( ( now.today() - formatted_birthday).days )
 
+        
         if (birthdate.month < now.month):
             days_to_birthday = abs(days_to_birthday - 365)
 

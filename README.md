@@ -3,9 +3,7 @@ Revolut - DevOps Engineer Test
 
 Forewords
 
-O job proposto contempla a criação de um conjunto de apis que poderia ser feito de maneira mais simpleficada. O que cairia como uma luva no momento que chegou. Certamente esta é a época do ano mais assoberbada, no entanto as palavras da recrutadora ficaram na minha cabeça: "faça uma coisa de que se orgulhe".
-
-Mais uma vez dizer isso é uma decisão arriscada, pois sempre há a possibilidade de ser dito que este código não seja motivo de orgulho.
+O job proposto contempla a criação de um conjunto de apis que poderia ser feito de maneira mais simplificada. O que cairia como uma luva no momento que chegou. Certamente esta é a época do ano mais assoberbada, no entanto as palavras da recrutadora ficaram na minha cabeça: "faça uma coisa de que se orgulhe".
 
 Então por que gastar um tempo que não tenho e ainda se expor desta forma?
 
@@ -37,9 +35,38 @@ GCP
 
 Custer com 4 nodes
 
+ACTION Git Hub
 
+A action criada implementa o CICD ao commit do master, talvez aqui seja melhor se disparado pelo pull request.
+
+Os principais passos implementados são:
+
+1 - Send Code to Sonarqube - análise de código estático, se o código nao passar nos padroes de qualidade o pipe é rejeitado
+
+2 - get sonarqube results to proceed - espero a resposta da análise
+
+3 - Set up Python to run unit test - invoca o código para teste unitário
+
+4 - Build Docker Image - build, tag e push image
+
+5 - Deploy to production - atualiza o tag do container e faz o rollout para
+
+6 -  Enjoy!
+
+Algumas melhorias devem ser feitas, como colocar algumas urls como secrets etc
+
+Coloco alguns slides o o diagrama básico e algumas evidencias no arquivo Diagrama e Evidências.pptx
+
+O Projeto roda localmente via docker
 
 To run docker uma locally must set db env
 docker run -p5000:5000 --env SQLALCHEMY_DATABASE_URI="mysql+pymysql://revolut:revolut@34.254.242.117/revolut?charset=utf8mb4" scconsulting/hello-python:latest
+
+Ou sem docker instalando-se os requirements, deve-se exportar a variável 
+export SQLALCHEMY_DATABASE_URI="mysql+pymysql://revolut:revolut@34.254.242.117/revolut?charset=utf8mb4"
+
+Deixarei a aplicacao rodando em
+
+http://34.79.55.30/hello/marcelo
 
 
