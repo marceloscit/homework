@@ -40,8 +40,8 @@ def get_hello(username):
                 days_to_birthday=( now.today() - formatted_birthday).days
 
                 if days_to_birthday < 0:
-                    days_to_birthday = 365 - days_to_birthday
-                    
+                    days_to_birthday = 365 + days_to_birthday
+
                 # if days more than 0 return message with days ti birtdate
                 if(days_to_birthday == 0):
                     return jsonify(
