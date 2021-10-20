@@ -11,7 +11,7 @@ class MyTestCase(unittest.TestCase):
         app.testing = True
         
         self.app = app.app.test_client()
-        app.app.config["USER"]="NOVO"
+        app.app.config["USER"]="unittest"
         self.api = "/hello/"
         now = datetime.now()
         app.app.config["DATE"]="{}-12-31".format(now.year-1)
@@ -28,12 +28,16 @@ class MyTestCase(unittest.TestCase):
     def test_2_get(self):
         now = datetime.now()
         birthdate = datetime.strptime(app.app.config["DATE"], self.format)
+        print(birthdate)
         formatted_birthday = datetime(now.year, birthdate.month, birthdate.day)
-        days_to_birthday=(formatted_birthday - now.today()).days+1
-        if(days_to_birthday>0):
-            response_message = {"message": "Hello, {}! Your birthday is in {} day(s)".format(app.app.config["USER"], days_to_birthday)}                
-        elif days_to_birthday == 0:
+
+        days_to_birthday=abs( ( now.today() - formatted_birthday).days )
+
+        if days_to_birthday == 0:
             response_message = {"message": "Hello, {}! Happy birthday!".format(app.app.config["USER"])}
+        else:
+            response_message = {"message": "Hello, {}! Your birthday is in {} day(s)".format(app.app.config["USER"], days_to_birthday)}                
+
         response = self.app.get(self.api+app.app.config["USER"]) 
         print("Check get entry - status code is equal 200 and check response message")
         self.assertEqual(200,response.status_code)
