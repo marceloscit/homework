@@ -46,7 +46,7 @@ def get_hello(username):
                 # if days is equal to 0 greet user
                 else:
                     return jsonify(
-                        message="Hello, {}! Your birthday is in {} day(s)".format(username, days_to_birthday)
+                        message="Hello, {}! Your birthday is in {} day(s)".format(username, -1*days_to_birthday)
                     )
                    
                
