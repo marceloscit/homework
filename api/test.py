@@ -33,6 +33,9 @@ class MyTestCase(unittest.TestCase):
 
         days_to_birthday=abs( ( now.today() - formatted_birthday).days )
 
+        if (birthdate.month < now.month):
+            days_to_birthday = abs(days_to_birthday - 365)
+
         if days_to_birthday == 0:
             response_message = {"message": "Hello, {}! Happy birthday!".format(app.app.config["USER"])}
         else:
