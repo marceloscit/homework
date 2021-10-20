@@ -37,19 +37,22 @@ def get_hello(username):
                 # changing user's birtdate year to this year, in order to compare days
                 formatted_birthday = datetime(now.year, user.birthdate.month, user.birthdate.day)
                 # calculating days between user's birtdate and today
-                days_to_birthday=abs(( now.today() - formatted_birthday).days)
+                days_to_birthday=(formatted_birthday - now.today()).days+1
                 # if days more than 0 return message with days ti birtdate
-                if(days_to_birthday == 0):
-                    return jsonify(
-                        message="Hello, {}! Happy birthday!".format(username)
-                    )
-                # if days is equal to 0 greet user
-                else:
+                if(days_to_birthday>0):
                     return jsonify(
                         message="Hello, {}! Your birthday is in {} day(s)".format(username, days_to_birthday)
                     )
-                   
-               
+                # if days is equal to 0 greet user
+                elif days_to_birthday == 0:
+                    return jsonify(
+                        message="Hello, {}! Happy birthday!".format(username)
+                    )
+                # else return message that user's birtdate already passed
+                else:
+                    return jsonify(
+                        message="Hello, {}! Your birthday has already passed".format(username)
+                    )
             # if user = None return error that user doesn't exist with http code = 400 Bad request
             else:
                 return ({"error": "username {} is not presented".format(username)}, 400)
