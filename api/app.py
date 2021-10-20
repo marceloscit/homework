@@ -37,7 +37,7 @@ def get_hello(username):
                 # changing user's birtdate year to this year, in order to compare days
                 formatted_birthday = datetime(now.year, user.birthdate.month, user.birthdate.day)
                 # calculating days between user's birtdate and today
-                days_to_birthday=( now.today() - formatted_birthday).days
+                days_to_birthday=abs(( now.today() - formatted_birthday).days)
                 # if days more than 0 return message with days ti birtdate
                 if(days_to_birthday == 0):
                     return jsonify(
@@ -46,7 +46,7 @@ def get_hello(username):
                 # if days is equal to 0 greet user
                 else:
                     return jsonify(
-                        message="Hello, {}! Your birthday is in {} day(s)".format(username, -1*days_to_birthday)
+                        message="Hello, {}! Your birthday is in {} day(s)".format(username, days_to_birthday)
                     )
                    
                
