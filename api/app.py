@@ -39,6 +39,9 @@ def get_hello(username):
                 # calculating days between user's birtdate and today
                 days_to_birthday=abs( ( now.today() - formatted_birthday).days )
 
+                if (user.birthdate.month < now.month):
+                   days_to_birthday = days_to_birthday - 365 
+
                 # if days more than 0 return message with days ti birtdate
                 if(days_to_birthday == 0):
                     return jsonify(
